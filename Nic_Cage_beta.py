@@ -19,13 +19,12 @@ def cageClips():
                    ("YOU BITCHES!!! YOU BITCHES!!!", "you_bs.mp3"), 
                    ("I'm just relieved that I'm not as crazy as everyone says...", "crazy.wav"),
                    ("I said put the bunny back in the box :rabbit:", "bunny.mp3"),
-                   ("I'm gonna steal the Declaration of Independence\nhttps://tenor.com/view/national-treasure-benjamin-gates-nicolas-cage-declaration-of-independence-steal-gif-4752081", "steal.wav"),
+                   ("I'm gonna steal the Declaration of Independence", "steal.wav"),
                    ("I never disrobe before gunplay", "other.mp3"),
                    ("I'll be taking these Huggies and whatever cash you've got", "huggies.mp3"),
                    ("You know, I could eat a peach for hours :peach:", "peach.mp3"),
                    ("FUUUUUUUUUUUUUUUCCCCCCKKKKK", "fudge.mp3"),
-                   ("Sorry Boss But There’s Only Two Men I Trust. One of Them’s Me. And The Other’s Not You :airplane:", "con-trust.wav"),
-                   ("What am I a fucking retard man?!?", "rtard.mp3")
+                   ("Sorry Boss But There’s Only Two Men I Trust. One of Them’s Me. And The Other’s Not You :airplane:", "con-trust.wav")
                   ]
     clip = random.randint(0, len(cage_clips)-1)
     #print(clip)
@@ -41,6 +40,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    test_comm = "!test"
     speakComm = "!speak"
     helpComm = "!help"
     trevorComm = "!trevor"
@@ -80,6 +80,9 @@ async def on_message(message):
                 ]
         await message.channel.send(gifs[r])
 
+    if test_comm in message.content:
+        await message.channel.send("I'm gonna steal the Declaration of Independence")
+        await message.channel.send("https://tenor.com/view/national-treasure-benjamin-gates-nicolas-cage-declaration-of-independence-steal-gif-4752081")
 
 
 
