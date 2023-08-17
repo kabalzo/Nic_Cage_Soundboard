@@ -1,2 +1,4 @@
 # Nic_Cage_Soundboard
-Planning to turn this into a Discord bot that plays random Nic Cage sound clips
+This a bot using the discord.py API
+It is a rough proof of concept
+

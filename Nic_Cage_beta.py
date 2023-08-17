@@ -13,7 +13,7 @@ intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='!', intents=intents)
 intents.message_content = True
 
-cage_clips = [
+NicCageQuotes = [
                 ("Not the bees! :bee:", "bees.mp3"),
                 ("I'M A VAMPIRE!:man_vampire:I'M A VAMPIRE!:man_vampire:I'M A VAMPIRE!:man_vampire:I'M A VAMPIRE!:man_vampire:I'M A VAMPIRE!:man_vampire:", "vampire.mp3"), 
                 ("YOU BITCHES!!! YOU BITCHES!!!", "you_bs.mp3"), 
@@ -46,30 +46,27 @@ async def test(ctx, arg):
 
 @bot.command()
 async def speak(ctx):
-    print("Channel ID: " + str(ctx.channel.id))
-    clip = random.randint(0, len(cage_clips)-1)
-    myClip = cage_clips[clip]
-    print(myClip[0])
-    await ctx.channel.send(myClip[0])
-
-    #playsound('sounds/' + cage_clips[clip][1])
-    #playsound('sounds/' + cageClipForDiscord[1])
-    #print(message.channel)'''
+    #print("Channel ID: " + str(ctx.channel.id))
+    randomQuote = random.randint(0, len(NicCageQuotes)-1)
+    myQuote = NicCageQuotes[randomQuote]
+    print(myQuote[0])
+    await ctx.channel.send(myQuote[0])
 
 @bot.command()
 async def helpme(ctx):
-       await ctx.channel.send("Use @ towards me and I'll respond. Commands: !speak, !help, !alex, !gif")
+       await ctx.channel.send("Use @ towards me and I'll respond. Commands: !speak, !join, !helpme, !gif")
 
 @bot.command()
 async def gif(ctx):
-    r = random.randint(0,3)
-    await ctx.channel.send(gifs[r])
+    randomGif = random.randint(0,3)
+    await ctx.channel.send(gifs[randomGif])
 
 @bot.command()
 async def join(ctx):
-    connected = ctx.author.voice
-    if connected:
-        await connected.channel.connect()
+    voice = await ctx.author.voice.channel.connect()
+    randomClip = random.randint(0, len(NicCageQuotes)-1)
+    myClip = NicCageQuotes[randomClip]
+    voice.play(discord.FFmpegPCMAudio('./sounds/' + str(myClip[1])))
 
 bot.run(TOKEN)
 
