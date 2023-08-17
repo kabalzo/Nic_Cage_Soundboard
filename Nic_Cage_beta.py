@@ -50,11 +50,14 @@ async def speak(ctx):
     randomQuote = random.randint(0, len(NicCageQuotes)-1)
     myQuote = NicCageQuotes[randomQuote]
     print(myQuote[0])
+    #This block is for selecting a random voice clip to play
+    myClip = NicCageQuotes[randomQuote]
+    voice = ctx.voice_client.play(discord.FFmpegPCMAudio('./sounds/' + str(myClip[1])))
     await ctx.channel.send(myQuote[0])
 
 @bot.command()
 async def helpme(ctx):
-       await ctx.channel.send("Commands:!join !leave !speak !helpme !gif")
+       await ctx.channel.send("Commands: !join !leave !speak !helpme !gif")
 
 @bot.command()
 async def gif(ctx):
@@ -65,12 +68,6 @@ async def gif(ctx):
 async def join(ctx):
     voice = await ctx.author.voice.channel.connect()
     await ctx.channel.send("Nic is here to party, woo! (!helpme)")
-
-    #This block is for selecting a random voice clip to play, not yet implemented fully
-    #randomClip = random.randint(0, len(NicCageQuotes)-1)
-    #myClip = NicCageQuotes[randomClip]
-    #voice.play(discord.FFmpegPCMAudio('./sounds/' + str(myClip[1])))
-
     voice.play(discord.FFmpegPCMAudio('./sounds/woo.mp3'))
 
 @bot.command()
