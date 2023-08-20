@@ -1,6 +1,7 @@
 #This is my Nic Cage bot
 
 import random
+import time
 #from playsound import playsound
 import discord
 from discord.ext import commands
@@ -27,11 +28,11 @@ NicCageQuotes = [
                 ("FUUUUUUUUUUUUUUUCCCCCCKKKKK", "fudge.mp3"),
                 ("Sorry Boss But There’s Only Two Men I Trust. One of Them’s Me. And The Other’s Not You :airplane:", "con-trust.wav"),
                 ("If I didn't love you so damn much I'd have to kill you bro", "love.mp3"),
-                ("Bring me the big knife I'm gonna cut my throat :knife", "knife.mp3"),
+                ("Bring me the big knife I'm gonna cut my throat :knife:", "knife.mp3"),
                 ("I am a baaaaaaaaaaad man", "bad.mp3"),
                 ("Because I was made for this sewer baby and I am the King!", "made_for_this.mp3"),
                 ("How in the name of Zeus' BUTTHOLE did you get out of your cell?", "get_out.mp3"),
-                ("I'm like a prickly pear :pear", "pear.mp3"),
+                ("I'm like a prickly pear :pear:", "pear.mp3"),
                 ("OK OK, FUCK!", "ok-ok.mp3"),
                 ("Have you ever been dragged into the sidewalk and beaten 'till you PISSED BLOOD?!?", "sidewalk.mp3"),
                 ("What do you say we cut the chit chat A-hole", "chitchat.mp3"),
@@ -98,9 +99,10 @@ async def join(ctx):
 
 @bot.command()
 async def leave(ctx):
+    voice = ctx.voice_client.play(discord.FFmpegPCMAudio('./sounds/silence.mp3'))
+    await ctx.channel.send("Hurray for the sounds of fucking silence")
+    time.sleep(5)
     voice = await ctx.voice_client.disconnect()
-    #print(type(voice))     
-    await ctx.channel.send("Chao!")
 
 bot.run(TOKEN)
     
