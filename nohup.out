@@ -1,0 +1,38 @@
+[2024-01-17 20:31:51] [INFO    ] discord.client: logging in using static token
+[2024-01-17 20:31:52] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6d23d89290d0dd919d28d86d1bb36c34).
+[2024-01-17 20:32:36] [INFO    ] discord.voice_client: Connecting to voice...
+[2024-01-17 20:32:36] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
+[2024-01-17 20:32:36] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found us-central3382.discord.media
+[2024-01-17 20:32:54] [INFO    ] discord.player: ffmpeg process 3973 successfully terminated with return code of 0.
+[2024-01-17 20:33:47] [INFO    ] discord.player: ffmpeg process 4000 successfully terminated with return code of 0.
+[2024-01-17 20:33:50] [INFO    ] discord.voice_client: Disconnecting from voice normally, close code 1000.
+[2024-01-17 20:33:50] [INFO    ] discord.voice_client: The voice handshake is being terminated for Channel ID 456511756605587480 (Guild ID 456511756605587476)
+[2024-01-17 20:36:25] [INFO    ] discord.voice_client: Connecting to voice...
+[2024-01-17 20:36:25] [INFO    ] discord.voice_client: Starting voice handshake... (connection attempt 1)
+[2024-01-17 20:36:25] [INFO    ] discord.voice_client: Voice handshake complete. Endpoint found us-central3382.discord.media
+[2024-01-17 20:36:39] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command leave
+Traceback (most recent call last):
+  File "/home/dkabala/.local/lib/python3.9/site-packages/discord/ext/commands/core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "/home/dkabala/Desktop/NicCageBot/bot.py", line 107, in leave
+    voice = ctx.voice_client.play(discord.FFmpegPCMAudio('./sounds/silence.mp3'))
+  File "/home/dkabala/.local/lib/python3.9/site-packages/discord/voice_client.py", line 608, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dkabala/.local/lib/python3.9/site-packages/discord/ext/commands/bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "/home/dkabala/.local/lib/python3.9/site-packages/discord/ext/commands/core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "/home/dkabala/.local/lib/python3.9/site-packages/discord/ext/commands/core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: ClientException: Already playing audio.
+[2024-01-17 20:36:39] [INFO    ] discord.player: ffmpeg process 4547 has not terminated. Waiting to terminate...
+[2024-01-17 20:36:39] [INFO    ] discord.player: ffmpeg process 4547 should have terminated with a return code of -9.
+[2024-01-17 20:36:42] [INFO    ] discord.player: ffmpeg process 4540 successfully terminated with return code of 0.
+[2024-01-17 20:36:48] [INFO    ] discord.player: ffmpeg process 4550 successfully terminated with return code of 0.
+[2024-01-17 20:36:51] [INFO    ] discord.voice_client: Disconnecting from voice normally, close code 1000.
+[2024-01-17 20:36:51] [INFO    ] discord.voice_client: The voice handshake is being terminated for Channel ID 456511756605587480 (Guild ID 456511756605587476)
